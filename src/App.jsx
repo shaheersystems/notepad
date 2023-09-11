@@ -9,12 +9,14 @@ import SignUpPage from "./pages/public/SignUp";
 import LoginPage from "./pages/public/Login";
 import Workspace from "./pages/private/Workspace";
 import { useAuth } from "./context/AuthContext";
+import Sidebar from "./components/Sidebar";
 function App() {
   const { loggedIn } = useAuth();
   return (
     <>
       <div>
         {!loggedIn && <Header />}
+        {loggedIn && <Sidebar />}
         <Routes>
           <Route path="/" element={<PublicRoutes />}>
             <Route path="/" element={<LandingPage />} />

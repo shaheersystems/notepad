@@ -4,11 +4,14 @@ import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
+import { ToggleProvider } from "./context/ToggleContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <ToggleProvider>
+          <App />
+        </ToggleProvider>
       </AuthProvider>
     </BrowserRouter>
   </React.StrictMode>
