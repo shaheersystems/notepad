@@ -22,19 +22,19 @@ function Sidebar() {
   }, []);
   const pages = [
     {
-      title: "FYP Project Ideas",
+      title: "Getting Started",
     },
     {
-      title: "Best diagramming libraries in react",
+      title: "FYP Ideas",
     },
     {
-      title: "How to build a Notion-like editor in ReactJS",
+      title: "FYP Progress",
     },
   ];
   const { toggle, setToggle } = useToggle();
   return (
     <div
-      className={`fixed top-0 transition-all bottom-0 w-[230px] h-screen bg-neutral-100 ${
+      className={`fixed top-0 transition-all bottom-0 w-[230px] h-screen border ${
         !toggle && "-translate-x-full"
       }`}
     >
@@ -57,20 +57,20 @@ function Sidebar() {
             </button>
           </div>
         </div>
-        <div className="px-1 py-2 space-y-1 border-b">
-          <button className="flex items-center w-full gap-2 px-4 py-1 rounded hover:bg-neutral-200">
+        <div className="px-1 py-2 space-y-1">
+          <button className="flex items-center w-full gap-2 px-4 py-1 rounded hover:bg-neutral-100">
             <MagnifyingGlassIcon className="w-4 h-4 text-neutral-500" />
             <span className="text-sm text-neutral-500">Search</span>
           </button>
-          <button className="flex items-center w-full gap-2 px-4 py-1 rounded hover:bg-neutral-200">
+          <button className="flex items-center w-full gap-2 px-4 py-1 rounded hover:bg-neutral-100">
             <ClockIcon className="w-4 h-4 text-neutral-500" />
             <span className="text-sm text-neutral-500">Updates</span>
           </button>
-          <button className="flex items-center w-full gap-2 px-4 py-1 rounded hover:bg-neutral-200">
+          <button className="flex items-center w-full gap-2 px-4 py-1 rounded hover:bg-neutral-100">
             <Cog6ToothIcon className="w-4 h-4 text-neutral-500" />
             <span className="text-sm text-neutral-500">Settings</span>
           </button>
-          <button className="flex items-center w-full gap-2 px-4 py-1 rounded hover:bg-neutral-200">
+          <button className="flex items-center w-full gap-2 px-4 py-1 rounded hover:bg-neutral-100">
             <PlusCircleIcon className="w-4 h-4 text-neutral-500" />
             <span className="text-sm text-neutral-500">New Page</span>
           </button>
@@ -84,7 +84,7 @@ function Sidebar() {
             {pages.map((page, index) => {
               return (
                 <Link to={`/${page.title}`} key={index}>
-                  <button className="flex items-center w-full gap-2 px-4 py-1 text-left rounded hover:bg-neutral-200">
+                  <button className="flex items-center w-full gap-2 px-4 py-1 text-left rounded hover:bg-neutral-100">
                     <ChevronRightIcon className="w-4 h-4 text-neutral-500" />
                     <span className="text-xs text-neutral-500">
                       {page.title.length > 25

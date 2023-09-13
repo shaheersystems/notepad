@@ -1,5 +1,4 @@
 import * as Dropdown from "@radix-ui/react-dropdown-menu";
-import PropTypes from "prop-types";
 const DropdownMenu = ({ children, data }) => {
   return (
     <Dropdown.Root>
@@ -9,31 +8,25 @@ const DropdownMenu = ({ children, data }) => {
       <Dropdown.Portal>
         <Dropdown.Content
           side="bottom"
-          data-side="bottom"
-          className="flex flex-col gap-2 p-2 border rounded shadow"
+          className="flex flex-col gap-1 p-1 mt-1 mr-3 border rounded-lg shadow"
         >
           {data?.map((item, idx) => {
             return (
               <Dropdown.Item
                 key={idx}
-                className="px-4 py-1 rounded outline-none hover:bg-gray-100"
+                className="px-2 py-1 rounded-lg outline-none w-36 hover:bg-gray-100"
               >
-                <button className="w-full text-left outline-none">
-                  {item}
+                <button className="flex items-center w-full gap-2 text-sm text-left outline-none">
+                  {item.icon}
+                  <span>{item.text}</span>
                 </button>
               </Dropdown.Item>
             );
           })}
-          <Dropdown.Arrow className="border" />
         </Dropdown.Content>
       </Dropdown.Portal>
     </Dropdown.Root>
   );
-};
-
-DropdownMenu.PropTypes = {
-  children: PropTypes.node.isRequired,
-  data: PropTypes.array.isRequired,
 };
 
 export default DropdownMenu;
