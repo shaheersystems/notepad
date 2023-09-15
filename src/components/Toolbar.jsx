@@ -35,34 +35,51 @@ function Toolbar() {
     localStorage.setItem("theme", theme);
   };
   return (
-    <div className="flex items-center justify-between h-10 px-4">
+    <div
+      className={`flex items-center justify-between py-2.5 px-4 ${
+        theme === "dark" ? "bg-dark text-light" : "text-neutral-500"
+      }`}
+    >
       <div className="flex items-center gap-2">
         {!toggle && (
           <button
             onClick={() => setToggle(true)}
-            className="p-1 rounded hover:bg-neutral-200"
+            className={`p-1 rounded  ${
+              theme === "dark"
+                ? "bg-dark text-light hover:bg-neutral-800"
+                : "hover:bg-neutral-200 bg-white"
+            }`}
           >
-            <Bars3BottomLeftIcon className="w-5 h-5 text-neutral-500" />
+            <Bars3BottomLeftIcon className="w-5 h-5 " />
           </button>
         )}
       </div>
       <div className="flex items-center gap-2">
-        <button className="p-1 rounded hover:bg-neutral-200">
+        <button
+          className={`p-1 rounded  ${
+            theme === "dark"
+              ? "bg-dark text-light hover:bg-neutral-800"
+              : "hover:bg-neutral-200 bg-white"
+          }`}
+        >
           {theme === "light" ? (
-            <MoonIcon
-              onClick={() => toggleTheme("dark")}
-              className="w-5 h-5 text-neutral-500"
-            />
+            <MoonIcon onClick={() => toggleTheme("dark")} className="w-5 h-5" />
           ) : (
             <SunIcon
               onClick={() => toggleTheme("light")}
-              className="w-5 h-5 text-neutral-500"
+              className="w-5 h-5 "
             />
           )}
         </button>
         <DropdownMenu data={data}>
-          <button className="p-1 rounded hover:bg-neutral-200">
-            <EllipsisVerticalIcon className="w-5 h-5 text-neutral-500" />
+          <button
+            className={`p-1 rounded  ${
+              theme === "dark"
+                ? "bg-dark text-light hover:bg-neutral-800"
+                : "hover:bg-neutral-200 bg-white"
+            }`}
+          >
+            <EllipsisVerticalIcon className="w-5 h-5" />
           </button>
         </DropdownMenu>
       </div>

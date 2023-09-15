@@ -34,7 +34,7 @@ function Sidebar() {
   const { toggle, setToggle } = useToggle();
   return (
     <div
-      className={`fixed top-0 transition-all bottom-0 w-[230px] h-screen border ${
+      className={`bg-white fixed top-0 transition-all bottom-0 w-[230px] h-screen border ${
         !toggle && "-translate-x-full"
       }`}
     >

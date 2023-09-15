@@ -10,11 +10,26 @@ import LoginPage from "./pages/public/Login";
 import Workspace from "./pages/private/Workspace";
 import { useAuth } from "./context/AuthContext";
 import Sidebar from "./components/Sidebar";
+import { useTheme } from "./context/ThemeContext";
+import { useEffect } from "react";
 function App() {
   const { loggedIn } = useAuth();
+  const { theme } = useTheme();
+  useEffect(() => {
+    document.body.classList.add("transition-all");
+    if (theme === "dark") {
+      document.body.classList.add("bg-dark");
+    } else if (theme === "light") {
+      document.body.classList.remove("bg-dark");
+    }
+  }, [theme]);
   return (
     <>
-      <div>
+      <div
+        className={`transition-all ${
+          theme === "dark" ? "bg-dark" : "bg-white"
+        }`}
+      >
         {!loggedIn && <Header />}
         {loggedIn && <Sidebar />}
         <Routes>
