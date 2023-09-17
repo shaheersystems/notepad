@@ -12,6 +12,7 @@ import { useAuth } from "./context/AuthContext";
 import Sidebar from "./components/Sidebar";
 import { useTheme } from "./context/ThemeContext";
 import { useEffect } from "react";
+import NotePage from "./pages/private/NotePage";
 function App() {
   const { loggedIn } = useAuth();
   const { theme } = useTheme();
@@ -40,6 +41,7 @@ function App() {
           </Route>
           <Route path="/" element={<ProtectedRoutes />}>
             <Route path="/workspace" element={<Workspace />} />
+            <Route path="/pages/:id" element={<NotePage />} />
           </Route>
         </Routes>
         {!loggedIn && <Footer />}

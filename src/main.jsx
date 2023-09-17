@@ -6,13 +6,16 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import { ToggleProvider } from "./context/ToggleContext.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
+import { LockProvider } from "./context/LockContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
         <ToggleProvider>
           <ThemeProvider>
-            <App />
+            <LockProvider>
+              <App />
+            </LockProvider>
           </ThemeProvider>
         </ToggleProvider>
       </AuthProvider>

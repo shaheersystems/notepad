@@ -6,7 +6,7 @@ import NoteIllustration from "../../assets/note-banner.svg";
 import Footer from "../../components/Footer";
 function LandingPage() {
   return (
-    <div>
+    <div className="bg-white">
       <Wrap>
         <HeroSection />
         <Banner />

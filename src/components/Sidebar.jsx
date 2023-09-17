@@ -83,7 +83,7 @@ function Sidebar() {
           <div className="my-2 overflow-y-scroll h-72 no-scrollbar">
             {pages.map((page, index) => {
               return (
-                <Link to={`/${page.title}`} key={index}>
+                <Link to={`/pages/${page.title}`} key={index}>
                   <button className="flex items-center w-full gap-2 px-4 py-1 text-left rounded hover:bg-neutral-100">
                     <ChevronRightIcon className="w-4 h-4 text-neutral-500" />
                     <span className="text-xs text-neutral-500">
