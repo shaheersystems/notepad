@@ -5,6 +5,7 @@ import { Bars3BottomLeftIcon } from "@heroicons/react/24/outline";
 import { useParams } from "react-router-dom";
 import Editor from "../../components/Editor";
 import { useLock } from "../../context/LockContext";
+import { useEditorContent } from "../../context/EditorContentContext";
 const LockIcon = () => {
   return (
     <svg
@@ -42,10 +43,14 @@ const UnlockIcon = () => {
   );
 };
 function NotePage() {
+  const { data } = useEditorContent();
   const { id } = useParams();
   const { toggle, setToggle } = useToggle();
   const { theme } = useTheme();
   const { lock, setLock } = useLock();
+  const saveData = () => {
+    localStorage.setItem("data", JSON.stringify(data));
+  };
   return (
     <section
       className={`transition-all ${toggle && "ml-[230px]"} ${
@@ -71,7 +76,10 @@ function NotePage() {
           </h2>
         </div>
         <div className="flex items-center gap-2">
-          <button className="flex items-center gap-2 px-3 py-1 text-sm font-semibold rounded cursor-pointer hover:bg-neutral-200">
+          <button
+            onClick={() => saveData()}
+            className="flex items-center gap-2 px-3 py-1 text-sm font-semibold rounded cursor-pointer hover:bg-neutral-200"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -113,7 +121,7 @@ function NotePage() {
           </button>
         </div>
       </div>
-      <section className="max-w-3xl py-12 m-auto">
+      <section className="py-12 m-auto max-w-7xl">
         <Editor />
       </section>
     </section>

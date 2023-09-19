@@ -7,6 +7,7 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 import { ToggleProvider } from "./context/ToggleContext.jsx";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
 import { LockProvider } from "./context/LockContext.jsx";
+import { EditorContentProvider } from "./context/EditorContentContext.jsx";
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -14,7 +15,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <ToggleProvider>
           <ThemeProvider>
             <LockProvider>
-              <App />
+              <EditorContentProvider>
+                <App />
+              </EditorContentProvider>
             </LockProvider>
           </ThemeProvider>
         </ToggleProvider>
